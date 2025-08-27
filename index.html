@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>英语语法拖放学习</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语语法拖放学习</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <!-- 单词卡片区域 -->
-    <div class="words-area" id="words-area">
-      <!-- 单词卡片将通过 JavaScript 动态加载 -->
+    <div class="container">
+        <!-- 语法选择 -->
+        <div class="grammar-selection">
+            <label for="sentence-type">选择句子类型：</label>
+            <select id="sentence-type">
+                <option value="simple">简单句</option>
+                <option value="compound">复合句</option>
+                <option value="complex">复杂句</option>
+            </select>
+
+            <label for="clause-type">选择从句类型：</label>
+            <select id="clause-type">
+                <option value="noun">名词从句</option>
+                <option value="adjective">定语从句</option>
+                <option value="adverbial">状语从句</option>
+            </select>
+        </div>
+
+        <!-- 开始按钮 -->
+        <button id="start-btn">开始</button>
+
+        <!-- 单词卡片区域 -->
+        <div class="words-area" id="words-area"></div>
+
+        <!-- 语法卡片区域 -->
+        <div class="syntax-area" id="syntax-area">
+            <div class="syntax-card">Subject</div>
+            <div class="syntax-card">Verb</div>
+            <div class="syntax-card">Object</div>
+        </div>
+
+        <!-- 构建句子的区域 -->
+        <div class="sentence-builder" id="sentence-builder">
+            <p>拖动单词和语法卡片来构造句子！</p>
+        </div>
+
+        <!-- 奖励区域 -->
+        <div class="reward">
+            <p>你目前的积分：<span id="points">0</span> 分</p>
+            <p>奖励星星：<span id="stars">★</span></p>
+        </div>
     </div>
 
-    <!-- 语法卡片区域 -->
-    <div class="syntax-area" id="syntax-area">
-      <div class="syntax-card">Subject</div>
-      <div class="syntax-card">Verb</div>
-      <div class="syntax-card">Object</div>
-    </div>
-
-    <!-- 构建句子的区域 -->
-    <div class="sentence-builder" id="sentence-builder">
-      <p>拖动单词和语法卡片来构造句子！</p>
-    </div>
-  </div>
-
-  <!-- 奖励区域 -->
-  <div class="reward">
-    <p>你目前的积分：<span id="points">0</span> 分</p>
-    <p>奖励星星：<span id="stars">★</span></p>
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
