@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>英语语法拖放学习</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英语语法拖放学习</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="words-area" id="words-area">
-            <div class="word-card" draggable="true">I</div>
-            <div class="word-card" draggable="true">am</div>
-            <div class="word-card" draggable="true">happy</div>
-        </div>
+  <div class="container">
+    <!-- 单词卡片区域 -->
+    <div class="words-area" id="words-area">
+      <!-- 单词卡片 1 -->
+      <div class="word-card" draggable="true" data-word="I">
+        I
+        <div class="word-translation">我</div>
+      </div>
 
-        <div class="syntax-area" id="syntax-area">
-            <div class="syntax-card">Subject</div>
-            <div class="syntax-card">Verb</div>
-            <div class="syntax-card">Object</div>
-        </div>
+      <!-- 单词卡片 2 -->
+      <div class="word-card" draggable="true" data-word="am">
+        am
+        <div class="word-translation">是</div>
+      </div>
 
-        <div class="sentence-builder" id="sentence-builder">
-            <p>拖动单词和语法卡片来构造句子！</p>
-        </div>
+      <!-- 单词卡片 3 -->
+      <div class="word-card" draggable="true" data-word="happy">
+        happy
+        <div class="word-translation">高兴的</div>
+      </div>
+
+      <!-- 更多单词卡片 -->
+      <!-- 这里可以继续添加更多的单词和翻译 -->
+      <div class="word-card" draggable="true" data-word="You">
+        You
+        <div class="word-translation">你</div>
+      </div>
+      <div class="word-card" draggable="true" data-word="are">
+        are
+        <div class="word-translation">是</div>
+      </div>
+      <div class="word-card" draggable="true" data-word="good">
+        good
+        <div class="word-translation">好的</div>
+      </div>
     </div>
 
-    <!-- 添加积分和星星显示区域 -->
-    <div class="reward">
-        <p>你目前的积分：<span id="points">0</span> 分</p>
-        <p>奖励星星：<span id="stars">★★</span></p>
+    <!-- 语法卡片区域 -->
+    <div class="syntax-area" id="syntax-area">
+      <div class="syntax-card">Subject</div>
+      <div class="syntax-card">Verb</div>
+      <div class="syntax-card">Object</div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- 构建句子的区域 -->
+    <div class="sentence-builder" id="sentence-builder">
+      <p>拖动单词和语法卡片来构造句子！</p>
+    </div>
+  </div>
+
+  <!-- 奖励区域 -->
+  <div class="reward">
+    <p>你目前的积分：<span id="points">0</span> 分</p>
+    <p>奖励星星：<span id="stars">★</span></p>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
