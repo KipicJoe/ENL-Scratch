@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const wordsArea = document.getElementById('words-area');
     const sentenceBuilder = document.getElementById('sentence-builder');
+    const pointsElement = document.getElementById('points');
+    const starsElement = document.getElementById('stars');
+    let points = 0;
+    let stars = 0;
 
     const words = document.querySelectorAll('.word-card');
     words.forEach(word => {
@@ -20,5 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
         wordElement.textContent = word;
         wordElement.style.margin = '5px';
         sentenceBuilder.appendChild(wordElement);
+
+        // 每成功构建一个句子增加积分
+        points++;
+        pointsElement.textContent = points;
+        
+        // 每5个句子奖励1颗星星
+        if (points % 5 === 0) {
+            stars++;
+            starsElement.textContent = '★'.repeat(stars);
+        }
+
+        // 加入成功动画
+        sentenceBuilder.classList.add('success-animation');
     });
 });
