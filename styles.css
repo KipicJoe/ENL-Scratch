@@ -38,3 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         sentenceBuilder.classList.add('success-animation');
     });
 });
+.reward {
+    background-color: #ffeb3b;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+}
+
+.reward p {
+    margin: 5px 0;
+}
