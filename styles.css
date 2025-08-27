@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.words-area, .syntax-area {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.sentence-builder {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+}
+
+.word-card, .syntax-card {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.word-card:active, .syntax-card:active {
+    background-color: #45a049;
+}
