@@ -1,129 +1,159 @@
-/* 通用样式 */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff;
-  margin: 0;
-  padding: 0;
+/* 设置容器宽度和居中 */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* 容器布局 */
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 20px;
-  gap: 30px;
+/* 语法选择区域 */
+.grammar-selection {
+    margin-bottom: 20px;
+}
+
+.grammar-selection select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+    width: 200px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 /* 单词卡片区域 */
 .words-area {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-/* 单词卡片 */
+/* 每个单词卡片的样式 */
 .word-card {
-  background-color: #ffeb3b;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #000;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.word-card:hover {
-  background-color: #ffd54f;
-}
-
-.word-card .word-translation {
-  font-size: 14px;
-  color: #888;
-  margin-top: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #ffeb3b;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
 }
 
 /* 语法卡片区域 */
 .syntax-area {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 150px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* 语法卡片 */
+/* 语法卡片样式 */
 .syntax-card {
-  background-color: #8bc34a;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #9c27b0;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-.syntax-card:hover {
-  background-color: #7cb342;
-}
-
-/* 句子构建区域 */
+/* 拖拽区域：构建句子区域 */
 .sentence-builder {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 60%;
-  border: 2px solid #8bc34a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  font-size: 24px;
-  color: #555;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px dashed #ff5722;
+    min-height: 50px;
+    background-color: #ffffff;
+    border-radius: 8px;
 }
 
-.sentence-builder p {
-  margin: 0;
+/* 动画效果：句子正确构建时的动画 */
+.success-animation {
+    animation: successAnimation 1s ease-out;
+}
+
+/* 句子成功构建的动画 */
+@keyframes successAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* 奖励区域 */
 .reward {
-  background-color: #ffeb3b;
-  padding: 20px;
-  margin-top: 30px;
-  text-align: center;
-  border-radius: 8px;
-  font-size: 20px;
-  color: #000;
-  font-weight: bold;
-}
-
-/* 星星奖励的样式 */
-.reward #stars {
-  font-size: 30px;
-  color: gold;
-  margin-left: 10px;
-}
-
-/* 语法区域和单词卡片的提示区域 */
-.syntax-card, .word-card {
-  cursor: pointer;
-}
-
-/* 每当成功构建一个句子时的动画 */
-.success-animation {
-  animation: successAnimation 0.5s ease-out;
-}
-
-@keyframes successAnimation {
-  0% {
     background-color: #ffeb3b;
-  }
-  100% {
-    background-color: #8bc34a;
-  }
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}
+
+/* 让积分和奖励星星的文本更加突出 */
+.reward p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* 配置卡片区域，调整各项内容间距 */
+.reward {
+    margin-top: 20px;
+}
+
+/* 确保按钮、单词和语法卡片具有合适的间距 */
+button, .word-card, .syntax-card {
+    margin: 5px;
+}
+
+/* 使页面更适配手机屏幕 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .grammar-selection select {
+        width: 100%;
+    }
+
+    .words-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .syntax-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .word-card {
+        font-size: 16px;
+    }
+
+    .syntax-card {
+        font-size: 16px;
+    }
 }
