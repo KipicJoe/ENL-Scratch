@@ -1,49 +1,40 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const wordsArea = document.getElementById('words-area');
+    const sentenceBuilder = document.getElementById('sentence-builder');
+    const pointsElement = document.getElementById('points');
+    const starsElement = document.getElementById('stars');
+    let points = 0;
+    let stars = 0;
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-}
+    const words = document.querySelectorAll('.word-card');
+    words.forEach(word => {
+        word.addEventListener('dragstart', function(e) {
+            e.dataTransfer.setData('text', e.target.textContent);
+        });
+    });
 
-.words-area, .syntax-area {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 30%;
-    height: 400px;
-    overflow-y: auto;
-}
+    sentenceBuilder.addEventListener('dragover', function(e) {
+        e.preventDefault();  // 允许放置
+    });
 
-.sentence-builder {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 30%;
-    min-height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #ccc;
-}
+    sentenceBuilder.addEventListener('drop', function(e) {
+        e.preventDefault();
+        const word = e.dataTransfer.getData('text');
+        const wordElement = document.createElement('span');
+        wordElement.textContent = word;
+        wordElement.style.margin = '5px';
+        sentenceBuilder.appendChild(wordElement);
 
-.word-card, .syntax-card {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        // 每成功构建一个句子增加积分
+        points++;
+        pointsElement.textContent = points;
+        
+        if (points % 5 === 0) {  // 每5个句子奖励1颗星星
+            stars++;
+            starsElement.textContent = '★'.repeat(stars);
+        }
 
-.word-card:active, .syntax-card:active {
-    background-color: #45a049;
-}
+        // 加入成功动画
+        sentenceBuilder.classList.add('success-animation');
+    });
+});
