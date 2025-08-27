@@ -1,0 +1,6 @@
+I|我
+am|是
+happy|高兴的
+You|你
+are|是
+good|好的
